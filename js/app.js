@@ -14,3 +14,13 @@ var totalEgresos=()=>{
     for(let elemento of egreso){totalEgreso+=elemento};
     return totalEgreso;
 }
+var formatoMoneda= (valor)=>{
+    /*valor=valor.toFixed(2)*/
+    valor=valor.toLocaleString("es-MX",{style: 'currency',currency: 'MXN', minimumFractionDigits: 2});
+    return valor;
+}
+
+var formatoPorcentaje = (valor) => {
+    valor=valor.toLocaleString("es-MX",{style: 'percent',percent: '%', minimumFractionDigits: 2});
+    return valor;
+}
