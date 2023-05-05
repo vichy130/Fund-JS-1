@@ -10,16 +10,16 @@
     <script src="https://kit.fontawesome.com/0d1f50c390.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body onload="cargarApp()">
     <div class="cabecero">
         <div class="presupuesto">
             <div class="presupuesto_titulo">Presupuesto disponible</div><!-- end presupuesto_titulo-->
-            <div class="presupuesto_valor">+2,000.00</div> <!-- end presupuesto_valor-->
+            <div id="presupuesto"class="presupuesto_valor"></div> <!-- end presupuesto_valor-->
             <div class="presupuesto_ingreso limpiarEstilos"></div>
 
             <div class="presupuesto_ingreso--texto">Ingresos</div> <!-- end presupuesto_ingreso--texto-->
             <div class="derecha">
-                <div class="presupuesto_ingreso--valor">+4,000.00</div> <!--end presupuesto_ingreso--valor-->
+                <div id="ingresos"class="presupuesto_ingreso--valor"></div> <!--end presupuesto_ingreso--valor-->
                 <div class="presupuesto_ingreso--porcentaje"> </div><!-- end presupuesto_ingreso--porcentaje-->
             </div><!-- end derecha-->
 
@@ -27,8 +27,8 @@
 
             <div class="presupuesto_egreso--texto">Egresos</div>
             <div class="derecha limpiarEstilos">
-                <div class="presupuesto_egreso--valor"></div>
-                <div class="presupuesto_egreso--porcentaje">45%</div>
+                <div id="egresos" class="presupuesto_egreso--valor"></div>
+                <div id="porcentaje" class="presupuesto_egreso--porcentaje">45%</div>
             </div> <!-- end derecha-->
         </div> <!-- end presupuesto-->
     </div><!-- end cabecero-->
@@ -99,10 +99,11 @@
 
     <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
     <!-- icono checkmark circle-->
-    <script src="js/app.js"></script>
     <script src="js/Dato.js"></script>
-    <script src="js/Egreso.js"></script>
     <script src="js/Ingreso.js"></script>
+    <script src="js/Egreso.js"></script>
+    <script src="js/app.js"></script>
+
 </body>
 
 </html>
