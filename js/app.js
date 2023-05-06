@@ -37,6 +37,7 @@ var formatoPorcentaje = (valor) => {
 function cargarApp() {
     cargarCabecero();
     cargarIngresos();
+    cargarEgresos();
 }
 
 var cargarIngresos = () => {
@@ -50,7 +51,7 @@ var cargarIngresos = () => {
 }
 
 var crearIngresoHTML = (ingreso) => {
-    let ingresoHTML = `             
+    let egresoHTML = `             
         <div class="elemento limpiarEstilos">
             <div class="elemento_descripcion">${ingreso._descripcion}</div>
             <div class="derecha limpiarEstilos">
@@ -59,6 +60,31 @@ var crearIngresoHTML = (ingreso) => {
             name="close-circle-outline" onclick="eliminarIngreso(${ingreso._id})"></ion-icon></button></div>
             </div>
         </div> <!-- end elemento limpiarEstilos-->`;
-    return ingresoHTML;
-    
+    return egresoHTML;
 }
+
+var cargarEgresos = () => {
+    let egresosHTML='';
+    for(let egreso of egresos){
+        egresosHTML+=crearEgresoHTML(egreso);
+        console.log(egreso);
+    }
+    console.log(egresosHTML);
+    document.getElementById('lista-egresos').innerHTML=egresosHTML;
+}
+
+var crearEgresoHTML = (egreso) => {
+    let egresoHTML = `             
+        <div class="elemento limpiarEstilos">
+            <div class="elemento_descripcion">${egreso._descripcion}</div>
+            <div class="derecha limpiarEstilos">
+            <div class="elemento_valor">${formatoMoneda(egreso._valor)}</div>
+            <div class="elemento_eliminar"><button class="elemento_eliminar_btn"><ion-icon
+            name="close-circle-outline" onclick="eliminarIngreso(${egreso._id})"></ion-icon></button></div>
+            </div>
+        </div> <!-- end elemento limpiarEstilos-->`;
+    return egresoHTML;
+}
+
+
+
