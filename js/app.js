@@ -51,7 +51,7 @@ var cargarIngresos = () => {
 }
 
 var crearIngresoHTML = (ingreso) => {
-    let egresoHTML = `             
+    let ingresoHTML = `             
         <div class="elemento limpiarEstilos">
             <div class="elemento_descripcion">${ingreso._descripcion}</div>
             <div class="derecha limpiarEstilos">
@@ -60,7 +60,7 @@ var crearIngresoHTML = (ingreso) => {
             name="close-circle-outline" onclick="eliminarIngreso(${ingreso._id})"></ion-icon></button></div>
             </div>
         </div> <!-- end elemento limpiarEstilos-->`;
-    return egresoHTML;
+    return ingresoHTML;
 }
 
 var cargarEgresos = () => {
@@ -80,11 +80,25 @@ var crearEgresoHTML = (egreso) => {
             <div class="derecha limpiarEstilos">
             <div class="elemento_valor">${formatoMoneda(egreso._valor)}</div>
             <div class="elemento_eliminar"><button class="elemento_eliminar_btn"><ion-icon
-            name="close-circle-outline" onclick="eliminarIngreso(${egreso._id})"></ion-icon></button></div>
+            name="close-circle-outline" onclick="eliminarEgreso(${egreso._id})"></ion-icon></button></div>
             </div>
         </div> <!-- end elemento limpiarEstilos-->`;
     return egresoHTML;
 }
 
+var eliminarEgreso=(egresoId)=>{
+    let indiceEliminar=egresos.findIndex(egreso => egreso._id === egresoId);
+    console.log("INDICE ELIMINAR "+indiceEliminar);
+    egresos.splice(indiceEliminar,1);
+    console.log("esto es el egreso"+egresoId);
+    cargarApp();
+}
 
+var eliminarIngreso=(ingresoId)=>{
+    let indiceEliminar=ingresos.findIndex(ingreso => ingreso._id === ingresoId);
+    console.log("INDICE ELIMINAR "+indiceEliminar);
+    ingresos.splice(indiceEliminar,1);
+    console.log("esto es el ingreso"+ingresoId);
+    cargarApp();
+}
 
